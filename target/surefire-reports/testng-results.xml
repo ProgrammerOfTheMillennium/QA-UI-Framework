@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Surefire suite" duration-ms="13391" started-at="2019-10-12T20:38:35 YEKT" finished-at="2019-10-12T20:38:48 YEKT">
+  <suite name="Surefire suite" duration-ms="13460" started-at="2019-10-13T01:18:25 YEKT" finished-at="2019-10-13T01:18:39 YEKT">
     <groups>
     </groups>
-    <test name="Surefire test" duration-ms="13391" started-at="2019-10-12T20:38:35 YEKT" finished-at="2019-10-12T20:38:48 YEKT">
+    <test name="Surefire test" duration-ms="13460" started-at="2019-10-13T01:18:25 YEKT" finished-at="2019-10-13T01:18:39 YEKT">
       <class name="org.ds.task.AppTest">
-        <test-method status="PASS" signature="setup()[pri:0, instance:org.ds.task.AppTest@1a75e76a]" name="setup" is-config="true" duration-ms="21" started-at="2019-10-12T20:38:35 YEKT" finished-at="2019-10-12T20:38:35 YEKT">
+        <test-method status="PASS" signature="setup()[pri:0, instance:org.ds.task.AppTest@1a75e76a]" name="setup" is-config="true" duration-ms="43" started-at="2019-10-13T01:18:25 YEKT" finished-at="2019-10-13T01:18:25 YEKT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="shouldGoToTheHomePage()[pri:0, instance:org.ds.task.AppTest@1a75e76a]" name="shouldGoToTheHomePage" duration-ms="10956" started-at="2019-10-12T20:38:35 YEKT" finished-at="2019-10-12T20:38:46 YEKT">
+        <test-method status="PASS" signature="shouldGoToTheHomePage()[pri:0, instance:org.ds.task.AppTest@1a75e76a]" name="shouldGoToTheHomePage" duration-ms="13241" started-at="2019-10-13T01:18:25 YEKT" finished-at="2019-10-13T01:18:39 YEKT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- shouldGoToTheHomePage -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:org.ds.task.AppTest@1a75e76a]" name="tearDown" is-config="true" duration-ms="2375" started-at="2019-10-12T20:38:46 YEKT" finished-at="2019-10-12T20:38:48 YEKT">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:org.ds.task.AppTest@1a75e76a]" name="tearDown" is-config="true" duration-ms="100" started-at="2019-10-13T01:18:39 YEKT" finished-at="2019-10-13T01:18:39 YEKT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

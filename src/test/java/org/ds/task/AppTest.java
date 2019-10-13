@@ -1,8 +1,10 @@
 package org.ds.task;
 
 import org.ds.task.framework.Browser;
-import org.ds.task.framework.Pages;
+import org.ds.task.framework.Framework;
 import org.ds.task.framework.pages.HomePage;
+import org.ds.task.framework.pages.LoginPage;
+
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -13,20 +15,39 @@ import org.apache.logging.log4j.LogManager;
 public class AppTest {
     private static final Logger logger = LogManager.getLogger(AppTest.class);
 
-    @BeforeTest
+    @BeforeMethod
     public void setup() {
-        logger.info("Entering application.");
+        logger.info("Entering QA Automation Framework.");
+
+//        Browser.
+
     }
 
     @Test
     public static void shouldGoToTheHomePage() {
-        HomePage page = Pages.HomePage();
-        page.navigateTo();
+        HomePage page = Framework.HomePage();
+        page.navigateToHome();
 
         Assert.assertTrue(page.isAt());
     }
 
-    @AfterTest
+    @Test
+    public static void shouldGoToTheLoginPage() {
+        LoginPage page = Framework.LoginPage();
+        page.navigateTo("https://github.com/login");
+
+        Assert.assertTrue(page.isAt());
+    }
+
+//    @Test
+//    public static void shouldLogout() {
+//        HomePage page = Framework.HomePage();
+//        page.navigateToLoginPage();
+//
+//        Assert.assertTrue(page.LogOutPage().isAt());
+//    }
+
+    @AfterMethod
     public static void tearDown() {
         Browser.close();
     }
@@ -44,12 +65,3 @@ public class AppTest {
 
 
 
-//    @Test
-//    public static void shouldLogin() {
-//        Assert.assertTrue(Pages.LoginPage().isAt());
-//    }
-//
-//    @Test
-//    public static void shouldLogout() {
-//        Assert.assertTrue(Pages.LoginOut().isAt());
-//    }

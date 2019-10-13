@@ -6,7 +6,8 @@
         <classes>
             <class name="org.ds.task.AppTest">
                 <methods>
-                    <include name="shouldAnswerWithTrue" />
+                    <include name="shouldGoToTheHomePage" />
+                    <include name="shouldGoToTheLoginPage" />
                 </methods>
             </class>
         </classes>

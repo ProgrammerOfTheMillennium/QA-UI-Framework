@@ -8,6 +8,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public final class Browser {
     static WebDriver browser;
 
+//    public static void initialize() {
     public Browser() {
         Class<? extends WebDriver> driverClass = ChromeDriver.class;
         WebDriverManager.getInstance(driverClass).setup();
@@ -31,15 +32,7 @@ public final class Browser {
         browser.close();
     }
 
-    public WebDriver.Options manage() {
-        return browser.manage();
-    }
-
     public static WebDriver get() {
         return browser;
     }
-
-//    public WebElement findElement(By cssSelector) {
-//        return browser.findElement(cssSelector);
-//    }
 }
