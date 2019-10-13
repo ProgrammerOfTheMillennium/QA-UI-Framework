@@ -2,12 +2,12 @@ package org.ds.task.framework.pages;
 
 import org.ds.task.framework.Browser;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 
-public class HomePage {
-    Browser browser;
+public class HomePage extends Page {
     private static String homeURL = "https://github.com";
     private static String homePageTitle = "Built for developers";
 
@@ -15,11 +15,13 @@ public class HomePage {
     WebElement pageTitle;
 
 //    @FindBy(xpath = "a[href=\"/login\"]")
-    @FindBy(xpath = "(//header/div/div/div/a)[1]")
-    WebElement loginPageLink;
+//    @FindBy(xpath = "(//header/div/div/div/a)[1]")
+//    @FindBy(linkText = "Sign in")
+//    WebElement loginPageLink;
+
 
     public HomePage() {
-        browser = new Browser();
+        super();
     }
 
     public void navigateToHome() {
@@ -37,7 +39,7 @@ public class HomePage {
     }
 
     public void navigateToLoginPage() {
-//        browser.get().navigate().to(loginPageLink.toString());
+        WebElement loginPageLink = browser.get().findElement(By.cssSelector("a[href='/login']"));
         loginPageLink.click();
     }
 

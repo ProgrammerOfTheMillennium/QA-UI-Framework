@@ -19,25 +19,38 @@ public class AppTest {
     public void setup() {
         logger.info("Entering QA Automation Framework.");
 
-//        Browser.
-
+        Browser.initialize();
     }
 
     @Test
     public static void shouldGoToTheHomePage() {
         HomePage page = Framework.HomePage();
-        page.navigateToHome();
+        ((HomePage)page).navigateToHome();
 
-        Assert.assertTrue(page.isAt());
+        Assert.assertTrue(((HomePage)page).isAt());
     }
 
     @Test
     public static void shouldGoToTheLoginPage() {
-        LoginPage page = Framework.LoginPage();
-        page.navigateTo("https://github.com/login");
+        HomePage home = Framework.HomePage();
+        home.navigateToHome();
+        home.navigateToLoginPage();
 
-        Assert.assertTrue(page.isAt());
+        LoginPage login = Framework.LoginPage();
+
+        Assert.assertTrue(login.isAt());
     }
+
+//    @Test
+//    public static void shouldLoginToTheAccount() {
+//        HomePage home = Framework.HomePage();
+//        home.navigateToHome();
+//        home.navigateToLoginPage();
+//
+//        LoginPage login = Framework.LoginPage();
+//
+//        Assert.assertTrue(login.isAt());
+//    }
 
 //    @Test
 //    public static void shouldLogout() {
@@ -49,7 +62,8 @@ public class AppTest {
 
     @AfterMethod
     public static void tearDown() {
-        Browser.close();
+        Browser.get().close();
+        Browser.get().quit();
     }
 }
 

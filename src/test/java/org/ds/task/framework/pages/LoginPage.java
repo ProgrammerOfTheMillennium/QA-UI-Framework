@@ -5,17 +5,18 @@ import org.ds.task.framework.Browser;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class LoginPage {
-    Browser browser;
-    private final String loginURL = "https://github.com";
+public class LoginPage extends Page {
+    protected final String loginURL = "https://github.com";
     private final String loginPageTitle = "Sign in to GitHub";
 
     @FindBy(xpath = "//main/div/form/div/h1")
     WebElement pageTitle;
 
+
     public LoginPage() {
-        browser = new Browser();
+        super();
     }
+
 
     public void navigateTo(String URL) {
         browser.navigateTo(URL);
