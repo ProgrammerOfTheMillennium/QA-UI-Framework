@@ -4,28 +4,8 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-import java.util.List;
-import java.util.Set;
-
-
-public final class Browser implements WebDriver {
+public final class Browser {
     static WebDriver browser;
-
-//    public static void initialize() {
-    public void Browser(WebDriver browser) {
-        Class<? extends WebDriver> driverClass = ChromeDriver.class;
-        WebDriverManager.getInstance(driverClass).setup();
-
-        try {
-            browser = driverClass.newInstance();
-            browser.manage().window().maximize();
-
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-    }
 
     public static void initialize() {
         Class<? extends WebDriver> driverClass = ChromeDriver.class;
@@ -49,74 +29,17 @@ public final class Browser implements WebDriver {
     public static WebDriver get() {
         return browser;
     }
-//
-//    public Browser getInstance() {
-//        return this;
+
+    public static void turnOnWait() {
+//        browser.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+//    public static void turnOffWait() {
+//        browser.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 //    }
-
-
-
-    @Override
-    public void get(String s) {
-
-    }
-
-    @Override
-    public String getCurrentUrl() {
-        return null;
-    }
-
-    @Override
-    public String getTitle() {
-        return null;
-    }
-
-    @Override
-    public List<WebElement> findElements(By by) {
-        return null;
-    }
-
-    @Override
-    public WebElement findElement(By by) {
-        return null;
-    }
-
-    @Override
-    public String getPageSource() {
-        return null;
-    }
-
-    @Override
-    public void close() {
-    }
-
-    @Override
-    public void quit() {
-
-    }
-
-    @Override
-    public Set<String> getWindowHandles() {
-        return null;
-    }
-
-    @Override
-    public String getWindowHandle() {
-        return null;
-    }
-
-    @Override
-    public TargetLocator switchTo() {
-        return null;
-    }
-
-    @Override
-    public Navigation navigate() {
-        return null;
-    }
-
-    @Override
-    public Options manage() {
-        return null;
-    }
 }

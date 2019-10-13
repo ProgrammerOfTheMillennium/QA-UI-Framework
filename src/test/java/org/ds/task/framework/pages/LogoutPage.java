@@ -5,33 +5,42 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class LogoutPage extends Page {
-    Browser browser;
+    private final String logoutPageTitle = "Sign up for GitHub";
 
-    protected final String logoutURL = "https://github.com";
-    private final String loginPageTitle = "Sign in to GitHub";
-
-    @FindBy(xpath = "//main/div/form/div/h1")
+    @FindBy(css = "form > button[type='submit']")
     WebElement pageTitle;
 
-    public LogoutPage() {
-        browser = new Browser();
-    }
+    @FindBy(css = "summary[aria-label='View profile and more']")
+    WebElement profileMenuButton;
+
+    @FindBy(css = "button[class='dropdown-item dropdown-signout']")
+    WebElement logoutButton;
+
 
     public void navigateTo(String URL) {
         browser.navigateTo(URL);
     }
 
     public boolean isAt() {
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        Browser.turnOnWait();
 
-        return loginPageTitle.equals(pageTitle.getText());
+        return logoutPageTitle.equals(pageTitle.getText());
     }
 
     public Browser getBrowser() {
         return browser;
+    }
+
+    public void unauthorize() {
+        Browser.turnOnWait();
+
+        profileMenuButton.click();
+        logoutButton.click();
+    }
+
+    public boolean isUnauthorized() {
+        Browser.turnOnWait();
+
+        return logoutPageTitle.equals(pageTitle.getText());
     }
 }
